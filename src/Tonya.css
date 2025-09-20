@@ -31,14 +31,18 @@ body {
     display: flex;
     justify-content: center;
     background-color: bisque;
+    min-height: 100%;
+    align-items: center;
+}
+#root {
+    height: 100%;
 }
 .main {
     display: grid;
     grid-template-columns: 0.4fr 0.5fr 0.4fr 1fr 0.4fr;
     grid-auto-rows: 0.8fr 0.2fr 0.8fr 1fr 1fr;
     background-image: url("/public/tonya.jpg");
-    width: 130vmin;
-    height: 100vmin;
+    background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
 }
@@ -69,7 +73,7 @@ body {
     color: bisque;
     text-align: center;
     font-family: cursive;
-    font-size: xxx-large;
+    font-size: calc(16px + (16 + 16 * 0.7) * ((100vw - 320px) / 1280));
     font-weight: lighter;
     grid-column: 4;
     grid-row: 2;
@@ -79,8 +83,12 @@ body {
     color: bisque;
     text-align: end;
     font-family: cursive;
-    font-size: xxx-large;
+    font-size:  calc(16px + (16 + 16 * 0.7) * ((100vw - 320px) / 1280));
     font-weight: lighter;
     grid-column: 4;
     grid-row: 3;
+}
+
+html {
+    height: 100%;
 }

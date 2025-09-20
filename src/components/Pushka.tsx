@@ -3,7 +3,7 @@ import { motion, AnimatePresence } from 'framer-motion';
 import { Shot } from './Shot';
 import '../Tonya.css';
 
-export const Pushka = ({ rotation, initialX, initialY, className, src }) => {
+export const Pushka = ({ rotation, initialX, initialY, className, src, coef }) => {
     const [isVisible, setVisible] = useState(false);
     return (
         <div className={className} style={{ position: 'relative' }}>
@@ -14,8 +14,8 @@ export const Pushka = ({ rotation, initialX, initialY, className, src }) => {
                 setVisible(true);
                 setTimeout(() => setVisible(false), 2000);
                 }}
-                initial={{ rotate: rotation, scale: 1 }}
-                animate={{ rotate: rotation, scale: 1 }}
+                initial={{ scale: 1 }}
+                animate={{ scale: 1 }}
                 whileHover={{ scale: 1.2 }}
                 style={{
                 width: '15vmin',
@@ -23,7 +23,7 @@ export const Pushka = ({ rotation, initialX, initialY, className, src }) => {
                 }}
             />
             <AnimatePresence>
-                {isVisible && <Shot radians={rotation * Math.PI / 180} initialX={initialX} initialY={initialY} />}
+                {isVisible && <Shot radians={rotation * Math.PI / 180} initialX={initialX} initialY={initialY} coef={coef}/>}
             </AnimatePresence>
         </div>
     )
